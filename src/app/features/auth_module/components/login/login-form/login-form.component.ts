@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TsInputComponent, TsInputConfig, TsInputType } from 'ts-components/form-controls/input';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TsCheckboxComponent, TsCheckboxConfig } from 'ts-components/form-controls/checkbox';
@@ -15,7 +15,7 @@ import { TsButtonConfig, TsButtonComponent } from 'ts-components/form-controls/b
 export class LoginFormComponent{
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {
+  constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
       userName: [''],
       password: [''],
