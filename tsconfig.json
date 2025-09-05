@@ -21,6 +21,10 @@
     "lib": [
       "ES2022",
       "dom"
+    ],
+    "typeRoots": [
+      "../node_modules/ts-components",
+      "../node_modules/ts-components/form-controls"
     ]
   },
   "angularCompilerOptions": {

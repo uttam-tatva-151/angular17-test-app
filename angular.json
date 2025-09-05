@@ -5,7 +5,13 @@
   "projects": {
     "angular17-test-app": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "css",
+          "skipTests": true,
+          "prefix": "test"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
