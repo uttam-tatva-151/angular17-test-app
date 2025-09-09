@@ -4,12 +4,13 @@ import { MatMenuTrigger, MatMenu } from '@angular/material/menu';
 import { TsButtonConfig } from 'ts-components/form-controls/button';
 import { MatToolbar } from "@angular/material/toolbar";
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButton } from '@angular/material/button';
 
 @Component({
     selector: 'app-header',
     templateUrl: 'header.component.html',
     standalone: true,
-    imports: [MatMenuTrigger, MatTooltipModule, CommonModule, MatToolbar, MatMenu],
+    imports: [MatMenuTrigger, MatTooltipModule, MatButton, CommonModule, MatToolbar, MatMenu],
 })
 export class AppHeaderComponent {
   @Output() ToggleSidebar: EventEmitter<any> = new EventEmitter<any>();

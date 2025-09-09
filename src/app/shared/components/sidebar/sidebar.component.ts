@@ -14,8 +14,4 @@ export class AppSidebarComponent {
     panelOpenState = false;
     constructor(private router: Router) {
     }
-    openFormControlComponent(componentName: string): void {
-        const url: string = '/form-controls/' + componentName;
-        this.router.navigateByUrl(url);
-    }
 }

@@ -1,7 +1,7 @@
 import { Directive, ElementRef, inject, Renderer2, AfterViewInit } from '@angular/core';
 
 @Directive({
-  selector: '[testTogglePassword]',
+  selector: '[appTogglePassword]',
   standalone: true
 })
 export class TogglePassword implements AfterViewInit {

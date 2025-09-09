@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TsDataGrid, TsDataGridColumnConfig, TsDataGridComponent, TsDataGridFieldDataType, TsDataGridFieldType } from 'ts-components/grid';
 import { Project } from '../../../../../core/models/Project';
 
@@ -9,7 +9,7 @@ import { Project } from '../../../../../core/models/Project';
   templateUrl: './projects-data.component.html',
   styleUrl: './projects-data.component.css'
 })
-export class ProjectsDataComponent implements OnInit {
+export class ProjectsDataComponent {
   @ViewChild('projectsGrid') dataGrid!: TsDataGridComponent<Project>;
 
   gridId = 'projects-grid';
@@ -35,11 +35,6 @@ export class ProjectsDataComponent implements OnInit {
       allowSearching: false,
       allowFooter: false,
     }
-  };
-
-  indexColumnConfig = {
-    showIndexColumn: true,
-    indexHeader: '#'
   };
 
 // Column configuration
@@ -78,44 +73,10 @@ columns: TsDataGridColumnConfig<Project>[] = [
     primaryKey: this.primaryKey,
     data: this.projectsData,
     columns: this.columns,
-    features: this.gridFeatures,
-    indexColumn: this.indexColumnConfig
+    features: this.gridFeatures
   };
-  constructor() {}
-
-  ngOnInit(): void {
-    // Component initialization
-    console.log('Projects component initialized');
-  }
-
-  onRowClick(project: Project): void {
-    console.log('Row clicked:', project);
-    // Handle row click - navigate to project details, etc.
-  }
 
   viewAll(): void {
     console.log('View All clicked');
-    // Navigate to full projects list or expand view
-  }
-
-  // Method to get updated data from editable grid
-  getEditedData(): void {
-    if (this.dataGrid) {
-      const editedData = this.dataGrid.getEditedRows();
-      console.log('Edited data:', editedData);
-    }
-  }
-
-  updateProjectRow(updatedProject: Project): void {
-    if (this.dataGrid) {
-      const rowData = {
-        formData: updatedProject,
-        originalData: updatedProject
-      };
-      this.dataGrid.updateRow(rowData);
-    }
-  }
-
-  refreshGrid(): void {
   }
  }
