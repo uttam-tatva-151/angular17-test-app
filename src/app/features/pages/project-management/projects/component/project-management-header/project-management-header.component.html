@@ -13,7 +13,12 @@
       </div>
       <div class="row d-flex justify-content-between mb-3 align-items-center flex-nowrap">
         <ts-dropdown [config]="projectModeDropdownConfig" class="col-12 col-sm-6 col-md-3"></ts-dropdown>
-        <ts-checkbox [config]="showOnlyCMMICheckboxConfig" class="col-12 col-sm-6 col-md-3 w-75"></ts-checkbox>
+        <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-start gap-3 align-items-center w-75">
+          <ts-checkbox [config]="showOnlyCMMICheckboxConfig" class="mt-4"></ts-checkbox>
+          <ts-button [config]="searchButtonConfig"></ts-button>
+          <ts-button [config]="resetButtonConfig"></ts-button>
+        </div>
+
       </div>
     </form>
   </div>

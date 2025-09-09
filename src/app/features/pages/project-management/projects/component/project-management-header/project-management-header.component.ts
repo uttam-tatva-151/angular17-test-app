@@ -4,11 +4,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TsInputComponent, TsInputConfig, TsInputType } from "ts-components/form-controls/input";
 import { TsDropDownConfig, TsDropDownFeature, TsDropdownComponent, TsDropdownOptionConfig } from 'ts-components/form-controls/dropdown'
 import { TsCheckboxConfig, TsCheckboxComponent } from 'ts-components/form-controls/checkbox';
+import { TsButtonComponent, TsButtonConfig } from "ts-components/form-controls/button";
 
 @Component({
   selector: 'test-project-management-header',
   standalone: true,
-  imports: [TsInputComponent, ReactiveFormsModule, CommonModule, TsDropdownComponent, TsCheckboxComponent],
+  imports: [TsInputComponent, ReactiveFormsModule, CommonModule, TsDropdownComponent, TsCheckboxComponent, TsButtonComponent],
   templateUrl: './project-management-header.component.html',
   styleUrl: './project-management-header.component.css'
 })
@@ -106,5 +107,46 @@ export class ProjectManagementHeaderComponent {
   showOnlyCMMICheckboxConfig: TsCheckboxConfig = {
       formControlName: 'showOnlyCMMI',
       label: 'Show Only CMMI Projects'
+    }
+
+  searchButtonConfig: TsButtonConfig  ={
+      buttonText: 'Search',
+      color: 'primary',
+      id: 'projectSearchBtn',
+      isPrimary: true,
+      cssClasses: [
+        'mt-4',
+        'text-white',
+        'bg-primary',
+        'font-semibold'
+      ],
+      variant: 'bordered',
+      callback: (element?: any): void => {
+        if (this.filterationForm.valid) {
+         console.log(this.filterationForm.value);
+        } else {
+          // Mark all fields as touched to show validation errors
+          Object.keys(this.filterationForm.controls).forEach(key => {
+            this.filterationForm.get(key)?.markAsTouched();
+          });
+        }
+      }
+    }
+    resetButtonConfig: TsButtonConfig  ={
+      buttonText: 'Reset',
+      color: 'basic',
+      id: 'filterResetBtn',
+      isPrimary: false,
+      cssClasses: [
+        'mt-4',
+        'custom-border-btn',
+        'text-black',
+        'bg-seconddary',
+        'font-semibold'
+      ],
+      variant: 'bordered',
+      callback: (element?: any): void => {
+        this.filterationForm.reset();
+      }
     }
 }
