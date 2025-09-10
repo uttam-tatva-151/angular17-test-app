@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router";
 import { ProjectsComponent } from "./projects/projects.component";
-import { WorkBacklogComponent } from "./work-backlog/work-backlog.component";
+import { WorkBacklogComponent } from "./work-backlog-management/work-backlog-management.component";
 import { WorkGroupsComponent } from "./work-groups/work-groups.component";
 
 export const projectManagementRoutes: Routes =[
@@ -23,6 +23,10 @@ export const projectManagementRoutes: Routes =[
       {
         path: 'work-groups',
         component:WorkGroupsComponent
+      },
+      {
+        path: '**',
+        redirectTo: 'projects'
       }
     ]
   }
